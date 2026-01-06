@@ -1,0 +1,11 @@
+local Frame = script.Parent:WaitForChild("Frame")
+local TweenService = game:GetService("TweenService")
+local Brighten = TweenService:Create(Frame, TweenInfo.new(5, Enum.EasingStyle.Sine, Enum.EasingDirection.In), {BackgroundTransparency = 0})
+local Darken = TweenService:Create(Frame, TweenInfo.new(5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1})
+local Event = game.ReplicatedStorage:WaitForChild("PlayerWin")
+
+Event.OnClientEvent:Connect(function()
+	Brighten:Play()
+	wait(8)
+	Darken:Play()
+end)
